@@ -1,6 +1,6 @@
 
 import React from 'react';
-import type {PropsWithChildren} from 'react';
+import type { PropsWithChildren } from 'react';
 import SignInScreen from './src/screens/SigInScreen/SignInScreen';
 import SignUpScreen from './src/screens/SignUpScreen/SignUpScreen';
 import Navigation from './src/navigation';
@@ -11,14 +11,17 @@ import {
   Text,
   View,
 } from 'react-native';
+import { UserProvider } from './src/context/UserContext';
 
 
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.root}>
-      <Navigation/>
-    </SafeAreaView>
+    <UserProvider>
+      <SafeAreaView style={styles.root}>
+        <Navigation />
+      </SafeAreaView>
+    </UserProvider>
   )
 }
 
