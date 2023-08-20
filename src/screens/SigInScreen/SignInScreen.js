@@ -5,6 +5,7 @@ import CustomInput from "../../components/CustomInput/CustomInput";
 import CustomButton from "../../components/CustomButton/CustomButton";
 import { useNavigation } from "@react-navigation/native";
 import { useForm } from 'react-hook-form';
+import { useUserContext } from '../../context/UserContext';
 
 const PASSWORD_PATTERN = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*[#$^+=!*()@%&]).{8,}$/;
 
@@ -13,13 +14,24 @@ const SignInScreen = () => {
     const navigation = useNavigation();
     const { control,
          handleSubmit,
-        formState: {errors},
      } = useForm();
+     const { users } = useUserContext();
+     const [errorMessage, setErrorMessage] = useState('');
+
+    //  const dummyUsers = [
+    //     { username: "prueba0123", password: "Prueba012#" },
+    // ];
 
     const onSignInPressed = (data) => {
-        console.log(data);
-        //validate user
-        navigation.navigate('Home');
+        // Buscar al usuario en el array de usuarios
+        const user = users.find(user => user.username === data.username);
+
+        if (user && user.password === data.password) {
+            // Usuario válido, navegar a la pantalla Home
+            navigation.navigate('Home');
+        } else {
+            setErrorMessage('Invalid username or password');
+        }
     }
     const onSignUpPress = () => {
         console.warn("Sign Up")
@@ -52,7 +64,7 @@ const SignInScreen = () => {
                     }
                 }}
                 />
-
+             {errorMessage ? <Text style={styles.errorText}>{errorMessage}</Text> : null}
             <CustomButton text="Sign In" onPress={handleSubmit(onSignInPressed)} />
             <CustomButton text="Don't have an account? Create one" onPress={onSignUpPress} />
         </View>
@@ -68,6 +80,10 @@ const styles = StyleSheet.create({
         width: '70%',
         maxWidth: 300,
         maxHeight: 300,
+    },
+    errorText: {
+        color: 'red',
+        marginTop: 10,
     },
 });
 

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, useWindowDimensions } from 'react-native'
-import Logo from '../../../assets/images/logo.jpg';
 import CustomInput from "../../components/CustomInput/CustomInput";
 import CustomButton from "../../components/CustomButton/CustomButton";
 import { useNavigation } from "@react-navigation/native";
 import { useForm } from 'react-hook-form';
+import { useUserContext } from '../../context/UserContext';
 
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const PASSWORD_PATTERN = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*[#$^+=!*()@%&]).{8,}$/;
@@ -16,11 +16,16 @@ const SignUpScreen = () => {
         watch
     } = useForm();
     const pwd = watch('password');
-
-    const { height } = useWindowDimensions();
+    const { users, setUsers } = useUserContext();
 
     const onRegisterPressed = (data) => {
-        console.warn("Register")
+        const newUser = {
+            username: data.username,
+            email: data.email,
+            password: data.password,
+        };
+        setUsers([...users, newUser]);
+        console.warn("User registered")
 
     }
 
