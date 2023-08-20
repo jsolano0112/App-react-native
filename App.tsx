@@ -9,12 +9,13 @@ import {
   Text,
   View,
 } from 'react-native';
+import SignUpScreen from './src/screens/SignUpScreen/SignUpScreen';
 
 
 const App = () => {
   return (
     <SafeAreaView style={styles.root}>
-      <SignInScreen/>
+      <SignUpScreen/>
     </SafeAreaView>
   )
 }
