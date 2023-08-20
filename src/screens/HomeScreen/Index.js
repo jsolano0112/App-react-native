@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 
-const index = () => {
+const Index = () => {
     return (
         <View>
           <Text>Homeeee</Text>
@@ -9,4 +9,4 @@ const index = () => {
     )
 }
 
-export default index
+export default Index
