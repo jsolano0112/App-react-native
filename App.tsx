@@ -2,6 +2,8 @@
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import SignInScreen from './src/screens/SigInScreen/SignInScreen';
+import SignUpScreen from './src/screens/SignUpScreen/SignUpScreen';
+import Navigation from './src/navigation';
 
 import {
   SafeAreaView,
@@ -9,13 +11,13 @@ import {
   Text,
   View,
 } from 'react-native';
-import SignUpScreen from './src/screens/SignUpScreen/SignUpScreen';
+
 
 
 const App = () => {
   return (
     <SafeAreaView style={styles.root}>
-      <SignUpScreen/>
+      <Navigation/>
     </SafeAreaView>
   )
 }

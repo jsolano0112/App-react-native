@@ -3,17 +3,24 @@ import { View, Text, Image, StyleSheet, useWindowDimensions } from 'react-native
 import Logo from '../../../assets/images/logo.jpg';
 import CustomInput from "../../components/CustomInput/CustomInput";
 import CustomButton from "../../components/CustomButton/CustomButton";
-
+import { useNavigation } from "@react-navigation/native";
 
 const SignInScreen = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const { height } = useWindowDimensions();
+    const navigation = useNavigation();
+
     const onSignInPressed = () => {
         console.warn("Sign in")
+
+        //validate user
+        navigation.navigate('Home');
     }
     const onSignUpPress = () => {
         console.warn("Sign Up")
+
+        navigation.navigate('SignUp');
     }
 
     return (
@@ -33,8 +40,8 @@ const SignInScreen = () => {
                 value={password}
                 setValue={setPassword}
                 secureTextEntry={true} />
-            <CustomButton text="Sign In" onPress={onSignInPressed}/>
-            <CustomButton text="Don't have an account? Create one" onPress={onSignUpPress}/>
+            <CustomButton text="Sign In" onPress={onSignInPressed} />
+            <CustomButton text="Don't have an account? Create one" onPress={onSignUpPress} />
         </View>
     )
 }

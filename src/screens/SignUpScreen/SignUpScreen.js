@@ -3,22 +3,25 @@ import { View, Text, StyleSheet, useWindowDimensions } from 'react-native'
 import Logo from '../../../assets/images/logo.jpg';
 import CustomInput from "../../components/CustomInput/CustomInput";
 import CustomButton from "../../components/CustomButton/CustomButton";
-
+import { useNavigation } from "@react-navigation/native";
 
 const SignUpScreen = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
     const [passwordRepeat, setPasswordRepeat] = useState('');
+    const navigation = useNavigation();
 
     const { height } = useWindowDimensions();
 
     const onRegisterPressed = () => {
         console.warn("Register")
+
     }
 
     const onSignInPress = () => {
         console.warn("Register")
+        navigation.navigate('SignIn');
     }
 
     return (
