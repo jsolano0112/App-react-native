@@ -1,9 +1,10 @@
+
 import React, { useState } from "react";
 import { View, StyleSheet, Text, Platform, Button } from 'react-native'
 import { Controller } from 'react-hook-form';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
-const CustomInputDate = ({ control, name, rules = {}, placeholder, secureTextEntry, }) => {
+const CustomInputDate = () => {
     const [date, setDate] = useState(new Date());
     const [mode, setMode] = useState('date');
     const [show, setShow] = useState(false);
@@ -28,6 +29,7 @@ const CustomInputDate = ({ control, name, rules = {}, placeholder, secureTextEnt
 
     return (
         <View style={styles.container}>
+           
            <View style={{ margin: 10, width: '50%' }}>
                 <Button title="Date" onPress={() => showMode('date')} />
             </View>
@@ -73,3 +75,4 @@ const styles = StyleSheet.create({
 });
 
 export default CustomInputDate
+
