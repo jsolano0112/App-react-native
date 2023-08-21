@@ -3,7 +3,7 @@ import { View, StyleSheet, Text, Platform, Button } from 'react-native'
 import { Controller } from 'react-hook-form';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
-const CustomInputHour = ({ control, name, rules = {}, placeholder, secureTextEntry, }) => {
+const CustomInputHour = ({ title, name, control }) => {
     const [date, setDate] = useState(new Date());
     const [mode, setMode] = useState('date');
     const [show, setShow] = useState(false);
@@ -18,7 +18,7 @@ const CustomInputHour = ({ control, name, rules = {}, placeholder, secureTextEnt
         let fTime = ' Hours ' + tempDate.getHours() + ' | Minutes: ' + tempDate.getMinutes();
         setText(fTime)
 
-        console.log(fDate + ' (' + fTime + ')')
+        control?.field?.onChange(name, currentDate);
     }
 
     const showMode = (currentMode) => {
@@ -29,9 +29,9 @@ const CustomInputHour = ({ control, name, rules = {}, placeholder, secureTextEnt
     return (
         <View style={styles.container}>
             <View style={{ margin: 10, width: '50%' }}>
-                <Button title="Time" onPress={() => showMode('time')} />
+                <Button title={title} onPress={() => showMode('time')} />
             </View>
-            <Text style={{fontSize: 15}}>{text}</Text>
+            <Text style={{ fontSize: 15 }}>{text}</Text>
             {show && (
                 <DateTimePicker
                     testID="dateTimePicker"
