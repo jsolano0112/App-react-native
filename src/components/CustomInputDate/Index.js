@@ -1,1 +1,1 @@
-export {default} from './CustomInputDate';
+export { default } from './CustomInputDate';
