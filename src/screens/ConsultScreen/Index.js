@@ -1,1 +1,1 @@
-export {default} from './ConsultScreen'
+export { default } from './ConsultScreen';
