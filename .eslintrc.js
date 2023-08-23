@@ -4,11 +4,6 @@ module.exports = {
   rules: {
     'object-curly-spacing': ['error', 'always'],
     quotes: ['error', 'single'],
+    'prettier/prettier': ['error', { singleQuote: true }],
   },
-  'prettier/prettier': [
-    'error',
-    {
-      endOfLine: 'auto',
-    },
-  ],
 };
