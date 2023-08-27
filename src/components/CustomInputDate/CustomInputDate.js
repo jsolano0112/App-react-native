@@ -55,20 +55,15 @@ const CustomInputDate = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#FDFCFC',
     width: '100%',
-    borderColor: '#e8e8e8',
-    borderWidth: 1,
-    borderRadius: 5,
+    borderColor: '#FFFFFF',
     paddingHorizontal: 10,
     marginVertical: 5,
     alignItems: 'center',
   },
   label: {
-    backgroundColor: '#e8e8e8',
     width: '100%',
     borderRadius: 5,
-    fontWeight: 'bold',
     fontSize: 20,
     paddingHorizontal: 10,
     marginVertical: 5,
