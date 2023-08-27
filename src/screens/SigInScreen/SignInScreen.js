@@ -90,9 +90,10 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   title: {
-    fontSize: 30,
+    fontSize: 25,
     fontWeight: 'bold',
-    marginVertical: 20,
+    color: '#051C60',
+    margin: 30,
   },
   logo: {
     width: '70%',
