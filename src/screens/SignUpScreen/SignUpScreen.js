@@ -28,7 +28,7 @@ const SignUpScreen = () => {
   };
 
   const onSignInPress = () => {
-    console.warn('Register');
+    console.warn('Sign In');
     navigation.navigate('SignIn');
   };
 

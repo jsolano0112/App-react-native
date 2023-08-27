@@ -17,11 +17,11 @@ const PASSWORD_PATTERN =
   /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*[#$^+=!*()@%&]).{8,}$/;
 
 const SignInScreen = () => {
+  const [errorMessage, setErrorMessage] = useState('');
+  const { users } = useUserContext();
   const { height } = useWindowDimensions();
   const navigation = useNavigation();
   const { control, handleSubmit } = useForm();
-  const { users } = useUserContext();
-  const [errorMessage, setErrorMessage] = useState('');
 
   //  const dummyUsers = [
   //     { username: "prueba0123", password: "Prueba012#" },
@@ -51,7 +51,7 @@ const SignInScreen = () => {
         style={[styles.logo, { height: height * 0.3 }]}
         resizeMode="contain"
       />
-
+      <Text style={styles.title}>Sign In</Text>
       <CustomInput
         name="username"
         placeholder="Username"
@@ -86,6 +86,13 @@ const styles = StyleSheet.create({
   root: {
     alignItems: 'center',
     padding: 20,
+    backgroundColor: '#FFFFFF',
+    flex: 1,
+  },
+  title: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    marginVertical: 20,
   },
   logo: {
     width: '70%',
