@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Text, Platform, Button } from 'react-native';
-import { Controller } from 'react-hook-form';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
-const CustomInputHour = ({ title, name, control }) => {
+const CustomInputHour = ({ title, name, control, setValue }) => {
   const [date, setDate] = useState(new Date());
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
@@ -18,7 +17,7 @@ const CustomInputHour = ({ title, name, control }) => {
     let fTime =
       ' Hours ' + tempDate.getHours() + ' | Minutes: ' + tempDate.getMinutes();
     setText(fTime);
-
+    setValue(currentDate);
     control?.field?.onChange(name, currentDate);
   };
 
