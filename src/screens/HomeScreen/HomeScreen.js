@@ -19,19 +19,23 @@ const HomeScreen = () => {
     navigation.navigate('Consult');
   };
   const calculateHours = () => {
-    if (entryHour && endHour) {
-      const entryDate = new Date(entryHour);
-      const endDate = new Date(endHour);
+    if (endHour > entryHour) {
+      if (entryHour && endHour) {
+        const entryDate = new Date(entryHour);
+        const endDate = new Date(endHour);
 
-      const timeDifference = endDate - entryDate;
-      const hours = Math.floor(timeDifference / (1000 * 60 * 60));
-      const minutes = Math.round(
-        (timeDifference % (1000 * 60 * 60)) / (1000 * 60),
-      );
+        const timeDifference = endDate - entryDate;
+        const hours = Math.floor(timeDifference / (1000 * 60 * 60));
+        const minutes = Math.round(
+          (timeDifference % (1000 * 60 * 60)) / (1000 * 60),
+        );
 
-      setText(`Total hours worked: ${hours} hours ${minutes} minutes`);
+        setText(`Total hours worked: ${hours} hours ${minutes} minutes`);
+      } else {
+        setText('Please select both entry and end hours.');
+      }
     } else {
-      setText('Please select both entry and end hours.');
+      setText('Please select the end hours carefully.');
     }
   };
 
