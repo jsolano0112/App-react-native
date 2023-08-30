@@ -20,12 +20,10 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   title: {
-    fontFamily: 'Metric-Regular',
-    fontSize: 30,
-    lineHeight: 50,
-    paddingTop: 10,
-    marginTop: 35,
-    color: '#DE7474',
+    fontSize: 25,
+    fontWeight: 'bold',
+    color: '#051C60',
+    margin: 30,
   },
 });
 
