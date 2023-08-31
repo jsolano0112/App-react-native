@@ -1,15 +1,24 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import CustomInputDate from '../../components/CustomInputDate/CustomInputDate';
-import CustomInputHour from '../../components/CustomInputHour/CustomInputHour';
-import { useForm } from 'react-hook-form';
-import CustomButton from '../../components/CustomButton/CustomButton';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { useRoute } from '@react-navigation/native';
 
 const ConsultScreen = () => {
-  const { control, handleSubmit } = useForm();
+  const route = useRoute();
+  const { hoursWorked } = route.params;
+
   return (
     <View style={styles.root}>
-      <Text style={styles.title}>Consult Hours</Text>
+      <ScrollView>
+        <Text style={styles.title}>Consult Hours</Text>
+        {hoursWorked.map((register, index) => (
+          <View key={index}>
+            <Text>{`Date: ${register.date}`}</Text>
+            <Text>{`Entry hour: ${register.entryHour}`}</Text>
+            <Text>{`End hour: ${register.endHour}`}</Text>
+            <Text>--------------------------------</Text>
+          </View>
+        ))}
+      </ScrollView>
     </View>
   );
 };

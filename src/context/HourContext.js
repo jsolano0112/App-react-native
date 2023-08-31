@@ -12,6 +12,6 @@ export const UserProvider = ({ hours }) => {
   );
 };
 
-export const useUserContext = () => {
+export const useHourContext = () => {
   return useContext(HourContext);
 };

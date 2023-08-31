@@ -7,28 +7,42 @@ import CustomButton from '../../components/CustomButton/CustomButton';
 import { useNavigation } from '@react-navigation/native';
 
 const HomeScreen = () => {
-  const navigation = useNavigation();
+  const [entryHour, setEntryHour] = useState();
+  const [endHour, setEndHour] = useState();
+  const [date, setDate] = useState();
   const [text, setText] = useState('');
   const { control, handleSubmit } = useForm();
-  const [entryHour, setEntryHour] = useState(null);
-  const [endHour, setEndHour] = useState(null);
+  const [hoursWorked, setHoursWorked] = useState([]);
+  const navigation = useNavigation();
 
-  const consultPress = () => {
-    console.warn('Consult hours');
-
-    navigation.navigate('Consult');
-  };
   const calculateHours = () => {
     if (endHour > entryHour) {
+      if (hoursWorked.length >= 10) {
+        setText('Maximum limit of 10 registers.');
+        return;
+      }
       if (entryHour && endHour) {
         const entryDate = new Date(entryHour);
         const endDate = new Date(endHour);
-
+        // console.log(entryHour);
+        // console.log(endHour);
+        // console.log(date);
+        if (entryDate !== null && endDate !== null) {
+          const newRegister = {
+            entryHour: `${entryHour.getHours()}:${entryHour.getMinutes()}`,
+            endHour: `${endHour.getHours()}:${endHour.getMinutes()}`,
+            date: `${date.getFullYear()}-${(date.getMonth() + 1)
+              .toString()
+              .padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`,
+          };
+          setHoursWorked([...hoursWorked, newRegister]);
+        }
         const timeDifference = endDate - entryDate;
         const hours = Math.floor(timeDifference / (1000 * 60 * 60));
         const minutes = Math.round(
           (timeDifference % (1000 * 60 * 60)) / (1000 * 60),
         );
+        console.warn('Register saved.');
 
         setText(`Total hours worked: ${hours} hours ${minutes} minutes`);
       } else {
@@ -38,12 +52,21 @@ const HomeScreen = () => {
       setText('Please select the end hours carefully.');
     }
   };
+  const consultPress = () => {
+    console.warn('Consult hours');
 
+    navigation.navigate('Consult', { hoursWorked: hoursWorked });
+  };
   return (
     <View style={styles.root}>
       <Text style={styles.title}>Hours Registration</Text>
 
-      <CustomInputDate />
+      <CustomInputDate
+        control={control}
+        name="date"
+        value={date}
+        setValue={setDate}
+      />
 
       <CustomInputHour
         control={control}

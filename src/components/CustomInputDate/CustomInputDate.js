@@ -3,7 +3,7 @@ import { View, StyleSheet, Text, Platform, Button } from 'react-native';
 import { Controller } from 'react-hook-form';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
-const CustomInputDate = () => {
+const CustomInputDate = ({ name, control, setValue }) => {
   const [date, setDate] = useState(new Date());
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
@@ -23,8 +23,8 @@ const CustomInputDate = () => {
       '/' +
       tempDate.getFullYear();
     setText(fDate);
-
-    console.log(fDate + ' (' + fTime + ')');
+    setValue(currentDate);
+    control?.field?.onChange(name, currentDate);
   };
 
   const showMode = currentMode => {
