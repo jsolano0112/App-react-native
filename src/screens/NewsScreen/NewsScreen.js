@@ -34,14 +34,14 @@ const NewsScreen = () => {
           setText(`Laboral inhability - ${daysDifference} days`);
           console.warn('Register saved.');
         } else {
-          setText('Please select the end hours carefully.');
+          setText('Please select the end date carefully.');
         }
       } else {
         setText('Please select the end hours.');
       }
     } else if (category === 'Licenses' && endH && entryH) {
       const maxHours = 8;
-      if (endH && entryH) {
+      if (endH > entryH) {
         const timeDifferenceHours = endH - entryH;
         const hoursDifference = Math.round(timeDifferenceHours / (1000 * 3600));
         if (hoursDifference <= maxHours) {
@@ -52,6 +52,8 @@ const NewsScreen = () => {
             `Select max ${maxHours} hours or select category 'Vacation'.`,
           );
         }
+      } else {
+        setText('Please select the end hours carefully.');
       }
     } else if (category === 'Vacation' && entryD && endD) {
       const minDays = 1;
@@ -68,7 +70,7 @@ const NewsScreen = () => {
           setText('Please select the end hours carefully.');
         }
       } else {
-        setText('Please select the end hours.');
+        setText('Please select the entry and end hours.');
       }
     } else {
       setText('Select category.');
