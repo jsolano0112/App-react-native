@@ -57,6 +57,10 @@ const HomeScreen = () => {
 
     navigation.navigate('Consult', { hoursWorked: hoursWorked });
   };
+  const newsPress = () => {
+    console.warn('Register news');
+    navigation.navigate('News');
+  };
   return (
     <View style={styles.root}>
       <Text style={styles.title}>Hours Registration</Text>
@@ -85,6 +89,7 @@ const HomeScreen = () => {
       <Text style={styles.calcText}>{text}</Text>
       <CustomButton text="Register" onPress={handleSubmit(calculateHours)} />
       <CustomButton text="Consult hours" onPress={consultPress} />
+      <CustomButton text="Register news" onPress={newsPress} />
     </View>
   );
 };
