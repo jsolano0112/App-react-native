@@ -24,9 +24,6 @@ const HomeScreen = () => {
       if (entryHour && endHour && date) {
         const entryDate = new Date(entryHour);
         const endDate = new Date(endHour);
-        // console.log(entryHour);
-        // console.log(endHour);
-        // console.log(date);
         if (entryDate !== null && endDate !== null) {
           const newRegister = {
             entryHour: `${entryHour.getHours()}:${entryHour.getMinutes()}`,
