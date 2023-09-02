@@ -67,6 +67,7 @@ const HomeScreen = () => {
 
       <CustomInputDate
         control={control}
+        title="Date"
         name="date"
         value={date}
         setValue={setDate}

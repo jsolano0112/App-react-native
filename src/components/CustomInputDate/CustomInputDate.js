@@ -3,7 +3,7 @@ import { View, StyleSheet, Text, Platform, Button } from 'react-native';
 import { Controller } from 'react-hook-form';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
-const CustomInputDate = ({ name, control, setValue }) => {
+const CustomInputDate = ({ title, name, control, setValue }) => {
   const [date, setDate] = useState(new Date());
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
@@ -35,7 +35,7 @@ const CustomInputDate = ({ name, control, setValue }) => {
   return (
     <View style={styles.container}>
       <View style={{ margin: 10, width: '50%' }}>
-        <Button title="Date" onPress={() => showMode('date')} />
+        <Button title={title} onPress={() => showMode('date')} />
       </View>
       <Text style={{ fontSize: 15 }}>{text}</Text>
 
