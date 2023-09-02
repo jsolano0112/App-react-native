@@ -21,7 +21,7 @@ const HomeScreen = () => {
         setText('Maximum limit of 10 registers.');
         return;
       }
-      if (entryHour && endHour) {
+      if (entryHour && endHour && date) {
         const entryDate = new Date(entryHour);
         const endDate = new Date(endHour);
         // console.log(entryHour);
@@ -46,7 +46,7 @@ const HomeScreen = () => {
 
         setText(`Total hours worked: ${hours} hours ${minutes} minutes`);
       } else {
-        setText('Please select both entry and end hours.');
+        setText('Please select entry hour, end hour and date.');
       }
     } else {
       setText('Please select the end hours carefully.');
