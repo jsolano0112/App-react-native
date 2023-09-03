@@ -3,7 +3,7 @@
 # Hola tú
 
 
-Esta es mi primer aplicación con React Native. Funciona como registro de horas trabajadas por un empleado, en dicha aplicación se puede registrar horas, consultar esos registros e ingresar incapacidades, vacaciones o licencias.
+Esta es mi primera aplicación con React Native. Funciona como registro de horas trabajadas por un empleado, en dicha aplicación se puede registrar horas, consultar esos registros e ingresar incapacidades, vacaciones o licencias.
 
 ## Login
 El login es de esta manera: 
