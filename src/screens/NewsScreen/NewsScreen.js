@@ -14,6 +14,8 @@ const NewsScreen = () => {
   const [entryHour, setEntryHour] = useState();
   const [endHour, setEndHour] = useState();
   const { control, handleSubmit } = useForm();
+  const [showHourFields, setShowHourFields] = useState(false);
+  const [showDateFields, setShowDateFields] = useState(false);
 
   const categories = [
     { key: '1', value: 'Laboral inhability' },
@@ -81,41 +83,55 @@ const NewsScreen = () => {
       <ScrollView>
         <Text style={styles.title}>Register News</Text>
         <SelectList
-          setSelected={setCategory}
+          setSelected={value => {
+            setCategory(value);
+            setShowHourFields(value === 'Licenses');
+            setShowDateFields(
+              value === 'Vacation' || value === 'Laboral inhability',
+            );
+          }}
           data={categories}
           save="value"
           placeholder={'Select new type'}
           defaultOption={{ key: '1', value: 'Laboral inhability' }}
         />
-        <CustomInputHour
-          control={control}
-          title="Entry hour"
-          name="entryHour"
-          value={entryHour}
-          setValue={setEntryHour}
-        />
-        <CustomInputHour
-          control={control}
-          title="End hour"
-          name="endHour"
-          value={endHour}
-          setValue={setEndHour}
-        />
-        <CustomInputDate
-          control={control}
-          name="entryDate"
-          title="Entry Date"
-          value={entryDate}
-          setValue={setEntryDate}
-        />
-        <CustomInputDate
-          control={control}
-          name="endDate"
-          title="End Date"
-          value={endDate}
-          setValue={setEndDate}
-        />
 
+        {showHourFields && (
+          <>
+            <CustomInputHour
+              control={control}
+              title="Entry hour"
+              name="entryHour"
+              value={entryHour}
+              setValue={setEntryHour}
+            />
+            <CustomInputHour
+              control={control}
+              title="End hour"
+              name="endHour"
+              value={endHour}
+              setValue={setEndHour}
+            />
+          </>
+        )}
+        {showDateFields && (
+          <>
+            <CustomInputDate
+              control={control}
+              name="entryDate"
+              title="Entry Date"
+              value={entryDate}
+              setValue={setEntryDate}
+            />
+            <CustomInputDate
+              control={control}
+              name="endDate"
+              title="End Date"
+              value={endDate}
+              setValue={setEndDate}
+            />
+          </>
+        )}
         <CustomButton text="Register" onPress={handleSubmit(registerNews)} />
         <Text style={styles.text}>{text}</Text>
       </ScrollView>
