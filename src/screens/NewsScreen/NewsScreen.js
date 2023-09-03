@@ -137,7 +137,11 @@ const NewsScreen = () => {
             />
           </>
         )}
-        <CustomButton text="Register" onPress={handleSubmit(registerNews)} />
+        <CustomButton
+          backgroundColor="#7EAA92"
+          text="Register"
+          onPress={handleSubmit(registerNews)}
+        />
         <Text style={styles.text}>{text}</Text>
         <CustomButton
           backgroundColor="#272829"
