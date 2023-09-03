@@ -39,5 +39,8 @@ En esta parte de la aplicación podrás visualizar los registros que se han hech
 ## Ingresar novedades 
 Y por último podrás ingresar 3 tipos diferentes de novedades.
 
-![image](https://github.com/jsolano0112/App-react-native/assets/90517708/0eabf8c6-1f08-47d2-9d87-97022fa523f3)
+![image](https://github.com/jsolano0112/App-react-native/assets/90517708/0eabf8c6-1f08-47d2-9d87-97022fa523f3)  ![image](https://github.com/jsolano0112/App-react-native/assets/90517708/e1ab708f-ef56-49d5-8cb9-187981910bb3) ![image](https://github.com/jsolano0112/App-react-native/assets/90517708/30f6528d-7b87-45e2-bdfe-2ee23a939fff) ![image](https://github.com/jsolano0112/App-react-native/assets/90517708/0ec8f773-5da8-4c9d-97dd-c1439cf78701)
+
+
+
 
