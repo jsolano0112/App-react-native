@@ -26,9 +26,8 @@ Te podrás registras con un nombre de usuario, un correo y la contraseña que de
 
 En el siguiente pantallazo el trabajador podrá registrar la fecha, hora de inicio y hora de salida que tuvo en su día laboral.
 
-![image](https://github.com/jsolano0112/App-react-native/assets/90517708/d639ac39-f9ef-4741-9696-26f78d1f79b7)
+![image](https://github.com/jsolano0112/App-react-native/assets/90517708/d639ac39-f9ef-4741-9696-26f78d1f79b7) ![image](https://github.com/jsolano0112/App-react-native/assets/90517708/30228c93-2d3d-42e2-a447-b6d9cf58e215) ![image](https://github.com/jsolano0112/App-react-native/assets/90517708/1d2ccc38-599c-479a-bc33-5d8e34d0ce43)
 
-![image](https://github.com/jsolano0112/App-react-native/assets/90517708/30228c93-2d3d-42e2-a447-b6d9cf58e215)
 
 
 ## Consultar registros 
