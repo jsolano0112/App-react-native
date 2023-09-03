@@ -15,7 +15,7 @@ Cuenta con un botón de registro, el cual, te llevara a la siguiente pantalla:
 
 ![image](https://github.com/jsolano0112/App-react-native/assets/90517708/c623cf04-a83b-434c-bf53-1167e4f616dc)
 
-Te podrás registras con un nombre de usuario, un correo y la contraseña que debe cumplir los siguientes requisitos: 
+Te podrás registrar con un nombre de usuario, un correo y la contraseña que debe cumplir los siguientes requisitos: 
 - Debe contener 8 caracteres
 - Una letra en mayúscula
 - Una letra en minúscula
