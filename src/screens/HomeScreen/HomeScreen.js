@@ -86,9 +86,21 @@ const HomeScreen = () => {
         setValue={setEndHour}
       />
       <Text style={styles.calcText}>{text}</Text>
-      <CustomButton text="Register" onPress={handleSubmit(calculateHours)} />
-      <CustomButton text="Consult hours" onPress={consultPress} />
-      <CustomButton text="Register news" onPress={newsPress} />
+      <CustomButton
+        backgroundColor="#7EAA92"
+        text="Register hours"
+        onPress={handleSubmit(calculateHours)}
+      />
+      <CustomButton
+        backgroundColor="#7EAA92"
+        text="Consult hours"
+        onPress={consultPress}
+      />
+      <CustomButton
+        backgroundColor="#7EAA92"
+        text="Register news"
+        onPress={newsPress}
+      />
     </View>
   );
 };
@@ -103,7 +115,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 25,
     fontWeight: 'bold',
-    color: '#051C60',
+    color: '#272829',
     margin: 30,
   },
   calcText: {

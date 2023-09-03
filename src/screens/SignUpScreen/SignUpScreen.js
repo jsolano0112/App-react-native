@@ -87,8 +87,16 @@ const SignUpScreen = () => {
         }}
       />
 
-      <CustomButton text="Register" onPress={handleSubmit(onRegisterPressed)} />
-      <CustomButton text="Have an account? Sign In" onPress={onSignInPress} />
+      <CustomButton
+        backgroundColor="#7EAA92"
+        text="Register"
+        onPress={handleSubmit(onRegisterPressed)}
+      />
+      <CustomButton
+        backgroundColor="#9ED2BE"
+        text="Have an account? Sign In"
+        onPress={onSignInPress}
+      />
     </View>
   );
 };
@@ -106,7 +114,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 25,
     fontWeight: 'bold',
-    color: '#051C60',
+    color: '#272829',
     margin: 30,
   },
 });

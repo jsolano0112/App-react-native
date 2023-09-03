@@ -23,16 +23,10 @@ const SignInScreen = () => {
   const navigation = useNavigation();
   const { control, handleSubmit } = useForm();
 
-  //  const dummyUsers = [
-  //     { username: "prueba0123", password: "Prueba012#" },
-  // ];
-
   const onSignInPressed = data => {
-    // Buscar al usuario en el array de usuarios
     const user = users.find(user => user.username === data.username);
 
     if (user && user.password === data.password) {
-      // Usuario válido, navegar a la pantalla Home
       navigation.navigate('Home');
     } else {
       setErrorMessage('Invalid username or password');
@@ -73,8 +67,13 @@ const SignInScreen = () => {
       {errorMessage ? (
         <Text style={styles.errorText}>{errorMessage}</Text>
       ) : null}
-      <CustomButton text="Sign In" onPress={handleSubmit(onSignInPressed)} />
       <CustomButton
+        backgroundColor="#7EAA92"
+        text="Sign In"
+        onPress={handleSubmit(onSignInPressed)}
+      />
+      <CustomButton
+        backgroundColor="#9ED2BE"
         text="Don't have an account? Create one"
         onPress={onSignUpPress}
       />
@@ -92,7 +91,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 25,
     fontWeight: 'bold',
-    color: '#051C60',
+    color: '#272829',
     margin: 30,
   },
   logo: {

@@ -1,9 +1,11 @@
 import React from 'react';
-import { View, StyleSheet, Text, Pressable } from 'react-native';
+import { StyleSheet, Text, Pressable } from 'react-native';
 
-const CustomButton = ({ onPress, text }) => {
+const CustomButton = ({ onPress, text, backgroundColor }) => {
   return (
-    <Pressable onPress={onPress} style={styles.container}>
+    <Pressable
+      onPress={onPress}
+      style={[styles.container, { backgroundColor }]}>
       <Text style={styles.text}>{text}</Text>
     </Pressable>
   );
