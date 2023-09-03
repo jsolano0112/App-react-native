@@ -51,12 +51,9 @@ const HomeScreen = () => {
     }
   };
   const consultPress = () => {
-    console.warn('Consult hours');
-
     navigation.navigate('Consult', { hoursWorked: hoursWorked });
   };
   const newsPress = () => {
-    console.warn('Register news');
     navigation.navigate('News');
   };
   return (

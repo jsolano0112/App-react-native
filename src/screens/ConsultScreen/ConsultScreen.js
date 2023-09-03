@@ -1,11 +1,17 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { useRoute } from '@react-navigation/native';
-
+import CustomButton from '../../components/CustomButton/CustomButton';
+import { useNavigation } from '@react-navigation/native';
+import { useForm } from 'react-hook-form';
 const ConsultScreen = () => {
+  const navigation = useNavigation();
+  const { control, handleSubmit } = useForm();
   const route = useRoute();
   const { hoursWorked } = route.params;
-
+  const homePress = () => {
+    navigation.navigate('Home');
+  };
   return (
     <View style={styles.root}>
       <ScrollView>
@@ -18,6 +24,11 @@ const ConsultScreen = () => {
             <Text>--------------------------------</Text>
           </View>
         ))}
+        <CustomButton
+          backgroundColor="#272829"
+          text="Go back"
+          onPress={handleSubmit(homePress)}
+        />
       </ScrollView>
     </View>
   );

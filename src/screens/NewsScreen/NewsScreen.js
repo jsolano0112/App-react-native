@@ -5,6 +5,7 @@ import CustomInputDate from '../../components/CustomInputDate/CustomInputDate';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import { useForm } from 'react-hook-form';
 import CustomInputHour from '../../components/CustomInputHour/CustomInputHour';
+import { useNavigation } from '@react-navigation/native';
 
 const NewsScreen = () => {
   const [category, setCategory] = useState('');
@@ -16,6 +17,10 @@ const NewsScreen = () => {
   const { control, handleSubmit } = useForm();
   const [showHourFields, setShowHourFields] = useState(false);
   const [showDateFields, setShowDateFields] = useState(false);
+  const navigation = useNavigation();
+  const homePress = () => {
+    navigation.navigate('Home');
+  };
 
   const categories = [
     { key: '1', value: 'Laboral inhability' },
@@ -134,6 +139,11 @@ const NewsScreen = () => {
         )}
         <CustomButton text="Register" onPress={handleSubmit(registerNews)} />
         <Text style={styles.text}>{text}</Text>
+        <CustomButton
+          backgroundColor="#272829"
+          text="Go back"
+          onPress={handleSubmit(homePress)}
+        />
       </ScrollView>
     </View>
   );
