@@ -1,29 +1,35 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Text, Platform, Button } from 'react-native';
-import { Controller } from 'react-hook-form';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
-const CustomInputDate = ({ title, name, control, setValue }) => {
-  const [date, setDate] = useState(new Date());
+const CustomInputCurrentHour = ({ title, name, control, setValue }) => {
+  const initialDate = new Date();
+  initialDate.setHours(initialDate.getHours() - 5);
+
+  const [date, setDate] = useState(initialDate);
+  const [defaultDate] = useState(initialDate);
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
   const [text, setText] = useState('');
+  const [message, setMessage] = useState('');
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
     setShow(Platform.OS === 'ios');
-    setDate(currentDate);
+    if (currentDate.getTime() !== defaultDate.getTime()) {
+      setDate(defaultDate);
+      setMessage('Let current hour.');
+    } else {
+      setDate(currentDate);
+      setValue(currentDate);
 
-    let tempDate = new Date(currentDate);
-    let fDate =
-      tempDate.getDate() +
-      '/' +
-      (tempDate.getMonth() + 1) +
-      '/' +
-      tempDate.getFullYear();
-    setText(fDate);
-    setValue(currentDate);
-    control?.field?.onChange(name, currentDate);
+      let tempDate = new Date(currentDate);
+      let fTime = tempDate.getHours() + ' : ' + tempDate.getMinutes();
+      setText(fTime);
+      setMessage('');
+
+      control?.field?.onChange(name, currentDate);
+    }
   };
 
   const showMode = currentMode => {
@@ -34,16 +40,21 @@ const CustomInputDate = ({ title, name, control, setValue }) => {
   return (
     <View style={styles.container}>
       <View style={{ margin: 10, width: '50%' }}>
-        <Button title={title} onPress={() => showMode('date')} />
+        <Button title={title} onPress={() => showMode('time')} />
       </View>
-      <Text style={{ fontSize: 15 }}>{text}</Text>
-
+      {message ? (
+        <Text style={{ color: 'red', fontSize: 15 }}>{message}</Text>
+      ) : (
+        <Text style={{ fontSize: 15 }} editable={false}>
+          {text}
+        </Text>
+      )}
       {show && (
         <DateTimePicker
           testID="dateTimePicker"
           value={date}
           mode={mode}
-          is24Hour={true}
+          is12Hour={true}
           display="default"
           onChange={onChange}
         />
@@ -72,4 +83,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CustomInputDate;
+export default CustomInputCurrentHour;

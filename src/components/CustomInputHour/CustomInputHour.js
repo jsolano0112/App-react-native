@@ -14,8 +14,7 @@ const CustomInputHour = ({ title, name, control, setValue }) => {
     setDate(currentDate);
 
     let tempDate = new Date(currentDate);
-    let fTime =
-      ' Hours ' + tempDate.getHours() + ' | Minutes: ' + tempDate.getMinutes();
+    let fTime = tempDate.getHours() + ' : ' + tempDate.getMinutes();
     setText(fTime);
     setValue(currentDate);
     control?.field?.onChange(name, currentDate);

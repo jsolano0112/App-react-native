@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import CustomInputDate from '../../components/CustomInputDate/CustomInputDate';
 import CustomInputHour from '../../components/CustomInputHour/CustomInputHour';
+import CustomInputCurrentHour from '../../components/CustomInputCurrentHour/CustomInputCurrentHour';
 import { useForm } from 'react-hook-form';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import { useNavigation } from '@react-navigation/native';
@@ -70,7 +71,7 @@ const HomeScreen = () => {
         setValue={setDate}
       />
 
-      <CustomInputHour
+      <CustomInputCurrentHour
         control={control}
         title="Entry hour"
         name="entryHour"
