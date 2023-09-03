@@ -17,21 +17,20 @@ const HomeScreen = () => {
   const navigation = useNavigation();
 
   const calculateHours = () => {
-    console.log(entryHour);
-    console.log(endHour);
-    if (endHour > entryHour) {
+    const entryDate = new Date(date);
+    entryDate.setHours(entryHour.getHours());
+    entryDate.setMinutes(entryHour.getMinutes());
+
+    const endDate = new Date(date);
+    endDate.setHours(endHour.getHours());
+    endDate.setMinutes(endHour.getMinutes());
+
+    if (endDate > entryDate) {
       if (hoursWorked.length >= 10) {
         setText('Maximum limit of 10 registers.');
         return;
       }
       if (entryHour && endHour && date) {
-        const entryDate = new Date(date);
-        entryDate.setHours(entryHour.getHours());
-        entryDate.setMinutes(entryHour.getMinutes());
-
-        const endDate = new Date(date);
-        endDate.setHours(endHour.getHours());
-        endDate.setMinutes(endHour.getMinutes());
         if (entryDate !== null && endDate !== null) {
           const newRegister = {
             entryHour: `${entryHour.getHours()}:${entryHour.getMinutes()}`,
